@@ -1,19 +1,9 @@
----
-# Initial, common, system setup steps
-
-- name: enable sudo without tty for some ansible commands
-  replace:
-    path: /etc/sudoers
-    regexp: '^Defaults\s*requiretty'
-    replace: 'Defaults  !requiretty'
-    backup: yes
-
 - name: enable repos
-  yum_repository:
-    name: internal
-    description: "internal YUM repo"
-    baseurl: "https://www.opentlc.com/download/ansible_bootcamp/repo/"
-    
+  template:
+    src: repos_template.j2 
+    dest: /etc/yum.repos.d/open_ans-tower-lab.repo
+    mode: '0644'
+ 
 - name: install base tools and packages
   yum:
     name: "{{ item }}"
@@ -21,4 +11,3 @@
   loop:
     - httpie
     - python-pip
-
