@@ -2,7 +2,7 @@
 
     - name: Install Tomcat package(s)
       package:
-        name: "{{ app_server_packages }}"
+        name: tomcat
         state: present
 
     - name: Copy jar file into tomcat bin
@@ -29,5 +29,5 @@
 
     - name: Start Tomcat
       service:
-        name: "{{ app_server_service }}"
+        name: tomcat
         state: started
