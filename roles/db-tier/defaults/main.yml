@@ -11,3 +11,6 @@ postgres_10_bin_path: /usr/pgsql-10/bin
 postgres_service: postgresql-10.service
 postgres_port: 5432
 postgres_user: postgres
+postgres_databases:
+  - name: 3tier_db
+    owner: 3tier
