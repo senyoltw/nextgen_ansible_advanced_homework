@@ -14,3 +14,9 @@ postgres_user: postgres
 postgres_databases:
   - name: 3tier_db
     owner: 3tier
+postgres_users:
+  - name: 3tier
+    password: redhat
+    database: 3tier_db
+    state: present
+    priv: ALL
